@@ -45,3 +45,8 @@
 2. Gets a **reputation score** from AI / APIs.  
 3. Blocks the site if score < 30.  
 4. User can either go back or **visit anyway**.  
+
+
+---
+
+👉 Do you want me to **write a polished CONTRIBUTING.md file just for FakeProtect** (with badges, emoji, and a contributor-friendly tone), so you can paste it directly?
