@@ -1,0 +1,76 @@
+{
+  "manifest_version": 3,
+  "name": "Ultimate Advanced Phishing Protector Pro",
+  "version": "7.0.0",
+  "description": "Ultimate Multi-AI powered phishing protection with advanced threat detection, real-time security analysis, and comprehensive enterprise-grade protection.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "webNavigation",
+    "scripting",
+    "tabs",
+    "notifications",
+    "alarms"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"],
+      "css": ["warning-banner.css", "content-styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "blocked.html",
+        "settings.html",
+        "warning-banner.html",
+        "images/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "options_page": "settings.html",
+  "minimum_chrome_version": "88",
+  "author": "Ultimate Security Solutions",
+  "homepage_url": "https://github.com/ultimate-security/phishing-protector-pro",
+  "commands": {
+    "quick-scan": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Perform quick security scan of current page"
+    },
+    "toggle-protection": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P",
+        "mac": "Command+Shift+P"
+      },
+      "description": "Toggle real-time protection on/off"
+    }
+  }
+}

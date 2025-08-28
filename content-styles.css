@@ -1,0 +1,11 @@
+/* content-styles.css */
+.phishing-protector-insecure-field {
+  border: 3px solid #dc3545 !important;
+}
+.phishing-protector-warning-text {
+  color: #dc3545;
+  font-size: 12px;
+  font-weight: bold;
+  display: block;
+  margin-top: 5px;
+}

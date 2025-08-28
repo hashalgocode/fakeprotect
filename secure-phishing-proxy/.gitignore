@@ -1,0 +1,52 @@
+# Add content to .gitignore
+Set-Content -Path ".gitignore" -Value @"
+# .gitignore - Prevents sensitive files from being committed to Git
+
+# ===== SECURITY - NEVER COMMIT THESE =====
+.env
+.env.local
+.env.production
+.env.staging
+*.pem
+*.key
+config/secrets.json
+
+# ===== Node.js =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===== Logs =====
+logs/
+*.log
+
+# ===== Runtime =====
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ===== Coverage =====
+coverage/
+.nyc_output
+
+# ===== Dependencies =====
+.npm
+.eslintcache
+
+# ===== Optional: IDE files =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== OS generated files =====
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+"@

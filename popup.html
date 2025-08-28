@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Phishing Protector Pro</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <!-- Loading Indicator -->
+    <div id="loading-indicator" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Analyzing threat intelligence...</div>
+    </div>
+
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="logo">🛡️</div>
+            <div class="header-content">
+                <h2>Perfect Phishing Protector Pro</h2>
+                <div class="version">v8.0 Revolutionary Edition</div>
+            </div>
+        </div>
+
+        <!-- Status Section -->
+        <div id="status-section" class="status-section">
+            <div id="current-site" class="current-site">Loading...</div>
+            <div id="site-status" class="site-status">Analyzing...</div>
+            
+            <div class="status-metrics">
+                <div class="metric">
+                    <span class="metric-label">Score:</span>
+                    <span id="score-value" class="score-value">--/100</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Confidence:</span>
+                    <span id="confidence-level" class="confidence-level">--%</span>
+                </div>
+            </div>
+            
+            <div class="recommended-action-wrapper">
+                <span class="action-label">Recommended Action:</span>
+                <div id="recommended-action" class="recommended-action">ANALYZING</div>
+            </div>
+        </div>
+
+        <!-- Advanced Analysis Section -->
+        <div class="advanced-analysis">
+            <h3>🔍 Threat Analysis</h3>
+            
+            <div class="analysis-grid">
+                <div class="analysis-item">
+                    <div class="analysis-label">
+                        <span class="icon">🧠</span>
+                        Heuristic Analysis
+                    </div>
+                    <div id="heuristic-score" class="analysis-score">--/100</div>
+                </div>
+                
+                <div class="analysis-item">
+                    <div class="analysis-label">
+                        <span class="icon">🌐</span>
+                        Threat Intelligence
+                    </div>
+                    <div id="threat-intel-sources" class="threat-sources">No sources</div>
+                </div>
+                
+                <div class="analysis-item">
+                    <div class="analysis-label">
+                        <span class="icon">📊</span>
+                        Reputation Score
+                    </div>
+                    <div id="reputation-score" class="analysis-score">--/100</div>
+                </div>
+                
+                <div class="analysis-item">
+                    <div class="analysis-label">
+                        <span class="icon">⚡</span>
+                        Processing Time
+                    </div>
+                    <div id="processing-time" class="processing-time">--ms</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Threat Details Section -->
+        <div id="threat-details" class="threat-details" style="display: none;">
+            <h3>
+                <span class="icon">⚠️</span>
+                Detected Threats 
+                <span id="threat-count" class="threat-count">0</span>
+            </h3>
+            <div id="threat-list" class="threat-list">
+                <!-- Threats will be populated here -->
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="actions">
+            <div class="primary-actions">
+                <button id="whitelist-btn" class="btn btn-primary">
+                    <span class="btn-icon">✅</span>
+                    Whitelist Site
+                </button>
+                <button id="force-reanalyze-btn" class="btn btn-secondary">
+                    <span class="btn-icon">🔄</span>
+                    Re-analyze
+                </button>
+            </div>
+            
+            <div class="report-actions">
+                <button id="report-threat-btn" class="btn btn-danger">
+                    <span class="btn-icon">🚨</span>
+                    Report Threat
+                </button>
+                <button id="report-safe-btn" class="btn btn-success">
+                    <span class="btn-icon">✅</span>
+                    Report Safe
+                </button>
+            </div>
+        </div>
+
+        <!-- Configuration Buttons -->
+        <div class="config-buttons">
+            <button id="api-settings-btn" class="btn btn-config">
+                <span class="btn-icon">🔑</span>
+                API Settings
+            </button>
+            <button id="settings-btn" class="btn btn-config">
+                <span class="btn-icon">⚙️</span>
+                Settings
+            </button>
+        </div>
+
+        <!-- API Configuration Panel -->
+        <div id="api-config-panel" class="config-panel" style="display: none;">
+            <h3>🔑 Threat Intelligence APIs</h3>
+            <div class="api-config-grid">
+                <div class="api-config-item">
+                    <label class="api-label">
+                        <span class="api-name">Google Safe Browsing</span>
+                        <div id="googleSafeBrowsing-status" class="api-status missing">⚠️ Missing</div>
+                    </label>
+                    <input type="password" id="googleSafeBrowsing-api-key" class="api-key-input" placeholder="Enter API key...">
+                </div>
+                
+                <div class="api-config-item">
+                    <label class="api-label">
+                        <span class="api-name">VirusTotal</span>
+                        <div id="virusTotal-status" class="api-status missing">⚠️ Missing</div>
+                    </label>
+                    <input type="password" id="virusTotal-api-key" class="api-key-input" placeholder="Enter API key...">
+                </div>
+               
+            <div class="api-actions">
+                <button id="test-apis-btn" class="btn btn-secondary">
+                    <span class="btn-icon">🧪</span>
+                    Test APIs
+                </button>
+                <button id="save-api-keys-btn" class="btn btn-primary">
+                    <span class="btn-icon">💾</span>
+                    Save API Keys
+                </button>
+            </div>
+        </div>
+
+        <!-- Settings Panel -->
+        <div id="settings-panel" class="config-panel" style="display: none;">
+            <h3>⚙️ Protection Settings</h3>
+            
+            <div class="settings-group">
+                <h4>Analysis Engines</h4>
+                <div class="setting-item">
+                    <label class="setting-label">
+                        <span>Heuristic Analysis</span>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="toggle-heuristicAnalysis" checked>
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <label class="setting-label">
+                        <span>Threat Intelligence</span>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="toggle-threatIntelligence" checked>
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <label class="setting-label">
+                        <span>Dynamic Reputation</span>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="toggle-dynamicReputation" checked>
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="settings-group">
+                <h4>Protection Level</h4>
+                <div class="setting-item">
+                    <label class="setting-label">
+                        <span>Real-time Scanning</span>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="toggle-realTimeScanning" checked>
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <label class="setting-label">
+                        <span>Aggressive Mode</span>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="toggle-aggressiveMode">
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <label class="setting-label">
+                        <span>Enable Notifications</span>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="toggle-enableNotifications" checked>
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Section -->
+        <div class="analytics">
+            <h3>📊 Protection Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div id="sites-scanned" class="stat-value">0</div>
+                    <div class="stat-label">Sites Scanned</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div id="threats-blocked" class="stat-value">0</div>
+                    <div class="stat-label">Threats Blocked</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div id="accuracy-rate" class="stat-value">0%</div>
+                    <div class="stat-label">Accuracy Rate</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div id="uptime" class="stat-value">0h</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-text">
+                Perfect Phishing Protection • Real-time Threat Intelligence
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Help</a>
+                <a href="#" class="footer-link">About</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

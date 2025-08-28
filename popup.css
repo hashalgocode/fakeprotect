@@ -1,0 +1,496 @@
+/* Advanced Phishing Protector Pro - Popup Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 380px;
+    min-height: 500px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 
+                 "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    min-height: 100vh;
+    padding: 0;
+}
+
+/* Header Section */
+.header {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 32px;
+    margin-right: 12px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 2px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.version {
+    font-size: 11px;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Status Section */
+#status-section {
+    padding: 20px;
+    text-align: center;
+    background: white;
+    border-bottom: 1px solid #eee;
+}
+
+#current-site {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    word-wrap: break-word;
+    color: #2c3e50;
+}
+
+#site-status {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 10px 0;
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+#score-value, #confidence-level {
+    font-size: 13px;
+    margin: 4px 0;
+    font-weight: 500;
+    color: #666;
+}
+
+/* Status Colors */
+.status-safe { 
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: white;
+    box-shadow: 0 2px 10px rgba(79, 172, 254, 0.3);
+}
+
+.status-warning { 
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+    box-shadow: 0 2px 10px rgba(245, 87, 108, 0.3);
+}
+
+.status-blocked { 
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    color: white;
+    box-shadow: 0 2px 10px rgba(255, 65, 108, 0.3);
+}
+
+.status-whitelisted { 
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+    color: #333;
+    box-shadow: 0 2px 10px rgba(168, 237, 234, 0.3);
+}
+
+/* Risk Indicators */
+.risk-section {
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #eee;
+}
+
+.risk-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 13px;
+}
+
+.risk-label {
+    font-weight: 600;
+    color: #495057;
+}
+
+#ml-prediction, #api-sources, #processing-time {
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background: #e9ecef;
+    color: #495057;
+    font-size: 12px;
+}
+
+/* Threat Details */
+.threat-section {
+    padding: 15px 20px;
+    background: #fff5f5;
+    border-left: 4px solid #ff6b6b;
+    margin: 0 20px;
+    border-radius: 0 8px 8px 0;
+}
+
+.threat-section h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #c53030;
+}
+
+#threat-list {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #744d4d;
+}
+
+.threat-item {
+    padding: 4px 0;
+    border-bottom: 1px solid #fed7d7;
+}
+
+.threat-item:last-child {
+    border-bottom: none;
+}
+
+/* Action Buttons */
+.actions {
+    padding: 20px;
+    display: flex;
+    gap: 12px;
+}
+
+.quick-actions {
+    padding: 0 20px 20px;
+    display: flex;
+    gap: 8px;
+}
+
+button {
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    flex: 1;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-danger {
+    flex: 1;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.btn-secondary {
+    flex: 1;
+    padding: 10px 12px;
+    background: rgba(108, 117, 125, 0.1);
+    color: #495057;
+    border: 1px solid #dee2e6;
+    font-size: 12px;
+}
+
+.btn-secondary:hover {
+    background: rgba(108, 117, 125, 0.2);
+    transform: translateY(-1px);
+}
+
+.btn-icon {
+    font-size: 14px;
+}
+
+/* Settings Panel */
+.settings-panel {
+    padding: 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.settings-panel h3 {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #495057;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 13px;
+    color: #495057;
+    cursor: pointer;
+}
+
+/* Toggle Switches */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    transition: 0.4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+input:checked + .slider {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Statistics Section */
+.stats-section {
+    padding: 20px;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #dee2e6;
+}
+
+.stat-item {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 11px;
+    color: #6c757d;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Footer */
+.footer {
+    padding: 15px 20px;
+    background: #fff;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    gap: 8px;
+}
+
+.footer-btn {
+    flex: 1;
+    padding: 8px 12px;
+    background: transparent;
+    color: #6c757d;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.footer-btn:hover {
+    background: #f8f9fa;
+    color: #495057;
+}
+
+/* Loading States */
+.loading {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-height: 600px) {
+    .container {
+        font-size: 13px;
+    }
+    
+    .header {
+        padding: 15px 20px;
+    }
+    
+    #status-section {
+        padding: 15px 20px;
+    }
+    
+    .actions, .quick-actions {
+        padding: 15px 20px;
+    }
+}
+
+/* Accessibility */
+button:focus,
+input:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+.setting-item:hover {
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 0 -12px;
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.slide-up {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 12px 16px;
+    background: #28a745;
+    color: white;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(100%); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.notification.error {
+    background: #dc3545;
+}
+
+.notification.warning {
+    background: #ffc107;
+    color: #333;
+}

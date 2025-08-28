@@ -1,0 +1,20 @@
+#phishing-protector-banner {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  padding: 16px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+#go-back {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+}

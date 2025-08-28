@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Blocked - Ultimate Phishing Protector Pro</title>
+    <link rel="stylesheet" href="popup.css">
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .blocked-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            animation: slideUp 0.5s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .blocked-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .blocked-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #dc3545;
+            margin-bottom: 10px;
+        }
+        
+        .blocked-subtitle {
+            font-size: 18px;
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+        
+        .blocked-message {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #495057;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .blocked-details {
+            background: #fff5f5;
+            border: 1px solid #fecaca;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .blocked-details h3 {
+            color: #dc3545;
+            margin-top: 0;
+            font-size: 18px;
+        }
+        
+        .threat-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 8px;
+            background: white;
+            border-radius: 6px;
+            border-left: 3px solid #dc3545;
+        }
+        
+        .threat-icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .advanced-options {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .advanced-options h3 {
+            margin-top: 0;
+            color: #495057;
+        }
+        
+        .override-section {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .override-warning {
+            color: #856404;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="blocked-container">
+        <div class="blocked-icon">🛡️</div>
+        <div class="blocked-title">Site Blocked</div>
+        <div class="blocked-subtitle">Ultimate Phishing Protector Pro</div>
+        
+        <div class="blocked-message">
+            <strong>This website has been blocked for your protection.</strong><br>
+            Our Multi-AI security system has detected potential phishing or malicious activity on this site.
+        </div>
+        
+        <div id="site-info" class="blocked-details">
+            <h3>🚨 Security Alert Details</h3>
+            <div><strong>Blocked Site:</strong> <span id="blocked-site">Loading...</span></div>
+            <div><strong>Risk Level:</strong> <span id="risk-level" style="color: #dc3545; font-weight: bold;">HIGH RISK</span></div>
+            <div><strong>Detection Time:</strong> <span id="detection-time">Loading...</span></div>
+        </div>
+        
+        <div id="threat-details" class="blocked-details">
+            <h3>⚠️ Detected Threats</h3>
+            <div id="threat-list">
+                <div class="threat-item">
+                    <span class="threat-icon">🎭</span>
+                    <span>Brand impersonation detected</span>
+                </div>
+                <div class="threat-item">
+                    <span class="threat-icon">🔐</span>
+                    <span>Suspicious credential collection forms</span>
+                </div>
+                <div class="threat-item">
+                    <span class="threat-icon">🌐</span>
+                    <span>Malicious domain patterns</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <button id="go-back" class="btn btn-primary">
+                🔒 Go Back Safely
+            </button>
+            <button id="report-site" class="btn btn-secondary">
+                📝 Report This Site
+            </button>
+        </div>
+        
+        <div class="advanced-options">
+            <h3>🔧 Advanced Options</h3>
+            <div class="buttons">
+                <button id="whitelist-site" class="btn btn-secondary">
+                    ✅ Add to Whitelist
+                </button>
+                <button id="view-details" class="btn btn-secondary">
+                    📊 View Full Analysis
+                </button>
+            </div>
+            
+            <div class="override-section">
+                <div class="override-warning">
+                    ⚠️ <strong>Proceed with extreme caution!</strong> 
+                    This site may steal your personal information or install malware.
+                </div>
+                <button id="override-protection" class="btn btn-danger">
+                    ⚠️ Continue to Site (Not Recommended)
+                </button>
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px; font-size: 12px; color: #6c757d;">
+            Protected by Ultimate Advanced Phishing Protector Pro v7.0<br>
+            Multi-AI Enterprise Security System
+        </div>
+    </div>
+    
+    <script src="blocked.js"></script>
+</body>
+</html>

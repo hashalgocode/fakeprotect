@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Ultimate Advanced Phishing Protector Pro</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body style="width: 100vw; height: 100vh; margin: 0;">
+    <div class="container" style="min-height: 100vh; max-width: 800px; margin: 0 auto; padding: 20px;">
+        <!-- Header -->
+        <div class="header" style="margin-bottom: 30px;">
+            <div class="logo">🛡️</div>
+            <div>
+                <h1>Ultimate Advanced Phishing Protector Pro</h1>
+                <div class="version">v7.0 Multi-AI Enterprise - Settings</div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="settings-nav" style="margin-bottom: 30px;">
+            <button class="nav-tab active" data-tab="general">🔧 General</button>
+            <button class="nav-tab" data-tab="ai">🤖 AI Configuration</button>
+            <button class="nav-tab" data-tab="security">🛡️ Security</button>
+            <button class="nav-tab" data-tab="analytics">📊 Analytics</button>
+            <button class="nav-tab" data-tab="about">ℹ️ About</button>
+        </div>
+
+        <!-- General Settings Tab -->
+        <div id="general-tab" class="tab-content active">
+            <h2>🔧 General Settings</h2>
+            
+            <div class="settings-section">
+                <h3>Real-time Protection</h3>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label>Enable Real-time Scanning</label>
+                        <p>Continuously monitor websites for threats</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="realtime-scanning" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label>Auto-block Dangerous Sites</label>
+                        <p>Automatically block sites with high threat levels</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="auto-block" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Blocking Sensitivity</label>
+                    <select id="blocking-threshold" class="form-control">
+                        <option value="0.15">Maximum (Block Critical only)</option>
+                        <option value="0.25" selected>High (Block High Risk+)</option>
+                        <option value="0.45">Medium (Block Medium Risk+)</option>
+                        <option value="0.65">Low (Block Low Risk+)</option>
+                    </select>
+                    <small>Higher sensitivity may block more legitimate sites</small>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Notifications</h3>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label>Enable Notifications</label>
+                        <p>Show desktop notifications for threats</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="notifications" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label>Show Warning Popups</label>
+                        <p>Display in-page warnings for suspicious content</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="warning-popups" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Configuration Tab -->
+        <div id="ai-tab" class="tab-content">
+            <h2>🤖 Multi-AI Configuration</h2>
+            
+            <div class="ai-info-banner">
+                <h3>🧠 Multi-AI Protection System</h3>
+                <p>Configure multiple AI models for enhanced threat detection. Each model provides unique capabilities for comprehensive security analysis.</p>
+            </div>
+            
+            <div class="settings-section">
+                <h3>Primary AI Model (OpenAI GPT-3.5 Turbo)</h3>
+                <div class="ai-model-config">
+                    <div class="form-group">
+                        <label class="form-label">OpenRouter API Key</label>
+                        <input type="password" id="primary-key" class="form-control" placeholder="sk-or-...">
+                        <small>Get your key from <a href="https://openrouter.ai" target="_blank">OpenRouter.ai</a></small>
+                    </div>
+                    <div class="api-status-indicator" id="primary-status">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Not Configured</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Secondary AI Model (Claude 3 Sonnet)</h3>
+                <div class="ai-model-config">
+                    <div class="form-group">
+                        <label class="form-label">OpenRouter API Key</label>
+                        <input type="password" id="secondary-key" class="form-control" placeholder="sk-or-...">
+                        <small>Same OpenRouter key works for all models</small>
+                    </div>
+                    <div class="api-status-indicator" id="secondary-status">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Not Configured</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Tertiary AI Model (Mistral 7B)</h3>
+                <div class="ai-model-config">
+                    <div class="form-group">
+                        <label class="form-label">OpenRouter API Key</label>
+                        <input type="password" id="tertiary-key" class="form-control" placeholder="sk-or-...">
+                        <small>Lightweight model for basic analysis</small>
+                    </div>
+                    <div class="api-status-indicator" id="tertiary-status">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Not Configured</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>AI Settings</h3>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label>Multi-AI Consensus</label>
+                        <p>Use multiple AI models for enhanced accuracy</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="multi-ai-consensus" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="button-group">
+                    <button id="test-ai-connection" class="btn--secondary">🧪 Test AI Connection</button>
+                    <button id="save-ai-keys" class="btn--primary">💾 Save Configuration</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Settings Tab -->
+        <div id="security-tab" class="tab-content">
+            <h2>🛡️ Security Settings</h2>
+            
+            <div class="settings-section">
+                <h3>Whitelist Management</h3>
+                <div class="form-group">
+                    <label class="form-label">Whitelisted Sites</label>
+                    <div id="whitelist-container" class="list-container">
+                        <!-- Whitelisted sites will be populated here -->
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="new-whitelist-site" class="form-control" placeholder="example.com">
+                        <button id="add-whitelist" class="btn--secondary">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Blocked Sites</h3>
+                <div class="form-group">
+                    <label class="form-label">Blocked Sites</label>
+                    <div id="blocklist-container" class="list-container">
+                        <!-- Blocked sites will be populated here -->
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="new-blocked-site" class="form-control" placeholder="malicious-site.com">
+                        <button id="add-blocked" class="btn--secondary">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Advanced Security</h3>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label>Strict Mode</label>
+                        <p>Enhanced security with aggressive threat detection</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="strict-mode">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label>Enhanced Form Protection</label>
+                        <p>Monitor and protect sensitive form inputs</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="form-protection" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Tab -->
+        <div id="analytics-tab" class="tab-content">
+            <h2>📊 Security Analytics</h2>
+            
+            <div class="analytics-dashboard">
+                <div class="analytics-card">
+                    <div class="analytics-number" id="total-scans">0</div>
+                    <div class="analytics-label">Total Sites Scanned</div>
+                </div>
+                
+                <div class="analytics-card">
+                    <div class="analytics-number" id="threats-blocked">0</div>
+                    <div class="analytics-label">Threats Blocked</div>
+                </div>
+                
+                <div class="analytics-card">
+                    <div class="analytics-number" id="ai-queries">0</div>
+                    <div class="analytics-label">AI Queries Made</div>
+                </div>
+                
+                <div class="analytics-card">
+                    <div class="analytics-number" id="accuracy">--%</div>
+                    <div class="analytics-label">Detection Accuracy</div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Data Management</h3>
+                <div class="button-group">
+                    <button id="export-data" class="btn--secondary">📤 Export Data</button>
+                    <button id="clear-analytics" class="btn--outline">🗑️ Clear Analytics</button>
+                    <button id="reset-extension" class="btn btn--outline" style="color: #dc3545;">🔄 Reset Extension</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Tab -->
+        <div id="about-tab" class="tab-content">
+            <h2>ℹ️ About</h2>
+            
+            <div class="about-section">
+                <h3>🛡️ Ultimate Advanced Phishing Protector Pro v7.0</h3>
+                <p>The most advanced multi-AI phishing protection system available for Chrome. Utilizing cutting-edge artificial intelligence models for comprehensive threat detection and real-time security analysis.</p>
+                
+                <h4>🧠 AI Models Supported:</h4>
+                <ul>
+                    <li><strong>OpenAI GPT-3.5 Turbo:</strong> Advanced reasoning and pattern detection</li>
+                    <li><strong>Anthropic Claude 3 Sonnet:</strong> Superior security analysis capabilities</li>
+                    <li><strong>Mistral 7B Instruct:</strong> Lightweight efficient threat classification</li>
+                </ul>
+                
+                <h4>🔍 Detection Capabilities:</h4>
+                <ul>
+                    <li>Brand impersonation and typosquatting</li>
+                    <li>Phishing and credential harvesting</li>
+                    <li>Social engineering tactics</li>
+                    <li>Malicious form analysis</li>
+                    <li>Behavioral pattern analysis</li>
+                    <li>Real-time URL reputation checking</li>
+                </ul>
+                
+                <h4>📜 License & Privacy:</h4>
+                <p>This extension respects your privacy. No personal data is collected or transmitted. All analysis is performed locally or through secure API calls to AI providers.</p>
+                
+                <div class="button-group">
+                    <button id="view-logs" class="btn--secondary">📝 View Logs</button>
+                    <button id="contact-support" class="btn--secondary">📧 Contact Support</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Save Button (Fixed at bottom) -->
+        <div class="save-section">
+            <button id="save-all-settings" class="btn--primary btn--full-width">💾 Save All Settings</button>
+        </div>
+    </div>
+
+    <script src="settings.js"></script>
+
+    <style>
+        /* Additional styles for settings page */
+        .settings-nav {
+            display: flex;
+            gap: 10px;
+            border-bottom: 2px solid var(--color-border);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .nav-tab {
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-secondary);
+            transition: all var(--duration-fast) ease;
+        }
+        
+        .nav-tab.active,
+        .nav-tab:hover {
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+            border-color: var(--color-primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .settings-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+        }
+        
+        .settings-section h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 5px;
+        }
+        
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+        
+        .setting-info label {
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text);
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .setting-info p {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin: 0;
+        }
+        
+        .ai-info-banner {
+            background: linear-gradient(135deg, var(--color-bg-1), var(--color-bg-3));
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--color-primary);
+        }
+        
+        .ai-info-banner h3 {
+            margin-top: 0;
+            color: var(--color-primary);
+        }
+        
+        .ai-model-config {
+            display: flex;
+            gap: 20px;
+            align-items: flex-end;
+        }
+        
+        .ai-model-config .form-group {
+            flex: 1;
+        }
+        
+        .api-status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 120px;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--color-border);
+        }
+        
+        .status-dot.connected {
+            background: var(--color-success);
+        }
+        
+        .status-dot.error {
+            background: var(--color-error);
+        }
+        
+        .list-container {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            padding: 10px;
+            background: var(--color-background);
+            margin-bottom: 10px;
+        }
+        
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            margin: 4px 0;
+            background: var(--color-surface);
+            border-radius: var(--radius-sm);
+        }
+        
+        .input-group {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .input-group .form-control {
+            flex: 1;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .analytics-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .analytics-card {
+            background: var(--color-surface);
+            padding: 25px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            text-align: center;
+        }
+        
+        .analytics-number {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+        
+        .analytics-label {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            font-weight: var(--font-weight-medium);
+        }
+        
+        .about-section h4 {
+            color: var(--color-primary);
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .about-section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .about-section li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .save-section {
+            position: sticky;
+            bottom: 0;
+            background: var(--color-background);
+            padding: 20px 0;
+            border-top: 2px solid var(--color-border);
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .settings-nav {
+                flex-wrap: wrap;
+            }
+            
+            .nav-tab {
+                flex: 1;
+                min-width: 120px;
+                font-size: var(--font-size-sm);
+            }
+            
+            .ai-model-config {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .analytics-dashboard {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>
