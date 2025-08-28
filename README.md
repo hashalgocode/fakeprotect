@@ -1,4 +1,9 @@
+<p align="center">
+  <img src="images/icon.png" alt="FakeProtect Logo" width="120" />
+</p>
+
 # 🛡️ FakeProtect – Stay Safe Online
+
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Version](https://img.shields.io/badge/version-1.0-blue.svg)
