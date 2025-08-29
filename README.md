@@ -13,6 +13,26 @@
 ![Security](https://img.shields.io/badge/Security-AntiPhishing-red.svg)
 
 ---
+## Install (Manual)
+
+1. Click the green **Code** button → **Download ZIP**.
+2. Unzip it. Ensure the folder contains `manifest.json`.
+3. Open Chrome/Edge and go to `chrome://extensions/` or `edge://extensions/`.
+4. Enable **Developer mode** (top right).
+5. Click **Load unpacked** and select the unzipped folder.
+6. FakeProtect is installed. 🎯
+
+---
+
+## Configure API Keys
+
+To make the extension work with reputation services (like VirusTotal or Google Safe Browsing), you must add your own API keys.
+
+1. Get your API keys:
+   - [VirusTotal API key](https://developers.virustotal.com/reference/overview)  
+   - [Google Safe Browsing API key](https://developers.google.com/safe-browsing/v4/get-started)
+
+
 
 🔒 **Stay safe online — FakeProtect detects and blocks fake websites in real-time using reputation scores, while still giving you the option to visit anyway.**
 
